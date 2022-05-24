@@ -41,5 +41,5 @@ ip link show | awk '$1 == "link/ether" {print $2}' | sed '2, $d' | tr -d '\n'
 printf ")\n"
 
 printf "#Sudo : "
-journalctl _COMM=sudo | wc -l | tr -d '\n'
+journalctl _COMM=sudo | grep COMMAND | wc -l | tr -d '\n'
 printf " cmd\n"
